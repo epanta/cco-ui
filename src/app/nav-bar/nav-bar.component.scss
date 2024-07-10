@@ -1,0 +1,66 @@
+/* app.component.css */
+.menu-container {
+  height: 100vh;
+  display: flex;
+}
+
+.custom-sidenav {
+  width: 240px;
+  background-color: #0c4d65;
+  color: #ffffff;
+  transition: width 0.3s;
+  position: absolute;
+}
+
+.sidebar-collapsed {
+  width: 60px;
+}
+
+.toggle-button {
+  margin-top: 10px;
+  left: 100px; /* Mantém o botão na ponta direita */
+  background: #00a5e5;
+  border: none;
+  color: #e4e7eb;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.mat-nav-list a {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.mat-nav-list mat-icon {
+  margin-right: 8px;
+  color: #00a5cc;
+}
+
+.active-link {
+  background-color: #00354c;
+}
+
+.expand-icon {
+  margin-left: auto;
+}
+
+.menu-content {
+  padding: 16px;
+}
+
+.mat-nav-list a:hover {
+  background-color: #00a5e5;
+}
+
+.main-content {
+  flex-grow: 1;
+  transition: margin-left 0.3s;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.main-content-collapsed {
+  margin-left: 60px;
+}

@@ -1,0 +1,22 @@
+.footer {
+  background-color: #00a5e5;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.footer::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background-color: #66bb6a; /* Cor verde */
+}

@@ -1,0 +1,93 @@
+.modal {
+  width: 480px;
+  height: 268px;
+  box-sizing: border-box;
+  min-height: 100%;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+}
+
+.permissaoModal {
+  height: 47px;
+  padding: 2px 2px 2px 2px;
+  border-bottom: 3px solid #52ae32;
+  background-color: #00a5e4;
+  font-family: "Roboto", sans-serif;
+  color: #ffffff;
+  text-align: center;
+  line-height: normal;
+}
+
+.mat-typography {
+  text-align: center;
+  line-height: normal;
+  color: black;
+  margin-top: 2rem;
+}
+
+.solicitarAcesso {
+  height: 40px;
+  width: 50%;
+  padding: 2px;
+  border-radius: 5px;
+  border: 1px solid #18a4de;
+  background-color: #18a4de;
+  box-sizing: border-box;
+  font-family: "Roboto Medium", "Roboto", sans-serif;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: center;
+  line-height: normal;
+  margin-top: 2rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.fecharModal {
+  cursor: pointer;
+  height: 40px;
+  width: 30%;
+  border: 1px solid #18a4de;
+  color: #18a4de;
+  padding: 2px;
+  margin-right: 3rem;
+  border-radius: 5px;
+  text-align: center;
+  line-height: normal;
+  margin-top: 2rem;
+  box-sizing: border-box;
+  font-family: "Roboto Medium", "Roboto", sans-serif;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    max-width: 360px;
+  }
+  .mat-typography {
+    margin-top: 1rem;
+    max-width: 360px;
+  }
+  .fecharModal {
+    margin-top: 1.5rem;
+  }
+  .solicitarAcesso {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .modal {
+    max-width: 360px;
+  }
+  .mat-typography {
+    margin-top: 1rem;
+    max-width: 360px;
+  }
+  .fecharModal {
+    margin-top: 1.5rem;
+  }
+  .solicitarAcesso {
+    margin-top: 1.5rem;
+  }
+
+}

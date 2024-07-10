@@ -1,0 +1,13 @@
+<div class="modal">
+  <div class="permissaoModal">
+    <p class="titulo">MATRÍCULA SEM PERMISSÃO</p>
+  </div>
+  <mat-dialog-content class="mat-typography">
+    <p>Você não possui permissão para acessar o sistema. Deseja solicitar o acesso?</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button class="fecharModal" (click)="fecharDialogo()">Não</button>
+    <button class="solicitarAcesso" (click)="solicitarAcesso()">Sim, solicitar acesso
+    </button>
+  </mat-dialog-actions>
+</div>

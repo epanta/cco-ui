@@ -1,0 +1,94 @@
+<div class="nova-comunicacao-interna">
+  <div class="breadcrumb">
+    <span>Comunicação Interna > Nova Comunicação Interna</span>
+  </div>
+  <div class="stepper">
+    <div class="step" [class.active]="currentSection === 'transferencia'" (click)="navigateToSection('transferencia')">Transferência</div>
+    <div class="step" [class.active]="currentSection === 'hidrometros'" (click)="navigateToSection('hidrometros')">Hidrômetros</div>
+    <div class="step" [class.active]="currentSection === 'dadosEnvio'" (click)="navigateToSection('dadosEnvio')">Dados de Envio</div>
+  </div>
+  <form [formGroup]="form">
+    <div *ngIf="currentSection === 'transferencia'" class="content">
+      <h4>Código de Transferência</h4>
+      <p>Preencha abaixo com o Código localizado na "Nota de Remessa Transferência - SAP".</p>
+      <div class="form-group">
+        <label for="codigoTransferencia">Documento Material*</label>
+        <input id="codigoTransferencia" type="text" formControlName="codigoTransferencia" placeholder="0000000000/0000">
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn-cancelar" (click)="onCancelar()">Cancelar</button>
+        <button type="button" class="btn-proximo" (click)="onProximo()">Próximo</button>
+      </div>
+    </div>
+    <div *ngIf="currentSection === 'hidrometros'" class="content">
+      <h4>Cadastrar Hidrômetros</h4>
+      <p>Insira os dados à respeito dos hidrômetros que serão enviados.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="numeroSerie">Número de Série</label>
+          <input id="numeroSerie" type="text" formControlName="numeroSerie" placeholder="A00A000000">
+        </div>
+        <div class="form-group">
+          <label for="totalizacao">Totalização m³</label>
+          <input id="totalizacao" type="text" formControlName="totalizacao" placeholder="000000000">
+        </div>
+        <div class="form-group">
+          <label for="pde">PDE</label>
+          <input id="pde" type="text" formControlName="pde" placeholder="000000000000">
+        </div>
+        <div class="form-group">
+          <label for="osConecta">OS Conecta</label>
+          <input id="osConecta" type="text" formControlName="osConecta" placeholder="0000000000">
+        </div>
+        <div class="form-group">
+          <label for="solicitante">Solicitante</label>
+          <p-dropdown id="solicitante" [options]="solicitantes" formControlName="solicitante" placeholder="Selecione"></p-dropdown>
+        </div>
+        <div class="form-group">
+          <button pButton type="button" label="Inserir" (click)="onInserirHidrometro()"></button>
+        </div>
+      </div>
+      <table class="hidrometros-tabela">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Número de Série</th>
+          <th>Totalização m³</th>
+          <th>PDE</th>
+          <th>OS Conecta</th>
+          <th>Solicitante</th>
+          <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let hidrometro of hidrometros; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ hidrometro.numeroSerie }}</td>
+          <td>{{ hidrometro.totalizacao }}</td>
+          <td>{{ hidrometro.pde }}</td>
+          <td>{{ hidrometro.osConecta }}</td>
+          <td>{{ hidrometro.solicitante }}</td>
+          <td>
+            <button pButton type="button" icon="pi pi-times" (click)="onRemoverHidrometro(hidrometro)"></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="buttons">
+        <button pButton type="button" label="Cancelar" class="btn-cancelar" (click)="onCancelar()"></button>
+        <button pButton type="button" label="Próximo" class="btn-proximo" (click)="onProximo()"></button>
+      </div>
+    </div>
+    <div *ngIf="currentSection === 'dadosEnvio'" class="content">
+      <h4>Dados de Envio</h4>
+      <div class="form-group">
+        <label for="dataEnvio">Data de Envio</label>
+        <p-calendar id="dataEnvio" formControlName="dataEnvio" dateFormat="dd/mm/yy" placeholder="dd/mm/aaaa"></p-calendar>
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn-cancelar" (click)="onCancelar()">Cancelar</button>
+        <button type="button" class="btn-proximo" (click)="onProximo()">Próximo</button>
+      </div>
+    </div>
+  </form>
+</div>

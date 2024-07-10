@@ -1,0 +1,31 @@
+<div class="modal">
+  <div class="permissaoModal">
+    <p class="titulo">CONFIRMAR SOLICITAÇÃO</p>
+  </div>
+  <mat-dialog-content class="mat-typography">
+    <div class="modal-row">
+      <div class="modal-column">
+        <p>Nome Completo: {{ data.nomeCompleto }}</p>
+        <p>Unidade: {{ data.unidade }}</p>
+        <p>Telefone: {{ data.telefone }}</p>
+        <p>CEP: {{ data.cep }}</p>
+        <p>Bairro: {{ data.bairro }}</p>
+      </div>
+      <div class="modal-column">
+        <p>Matrícula: {{ data.matricula }}</p>
+        <p>Função: {{ data.funcao }}</p>
+        <p>Perfil: {{ data.perfil }}</p>
+        <p>Email: {{ data.email }}</p>
+        <p>Estado: {{ data.estado }}</p>
+        <p>Cidade: {{ data.cidade }}</p>
+        <p>Logradouro: {{ data.logradouro }}</p>
+        <p>Complemento: {{ data.complemento }}</p>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button class="fecharModal" (click)="fecharDialogo()">Fechar</button>
+    <button class="solicitarAcesso" (click)="solicitarAcesso()">Confirmar solicitação
+    </button>
+  </mat-dialog-actions>
+</div>

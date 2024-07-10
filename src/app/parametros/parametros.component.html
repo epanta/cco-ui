@@ -1,0 +1,64 @@
+<div class="parametros">
+  <div class="header">
+    <span>Parâmetros</span>
+  </div>
+  <div class="pesquisar-parametro">
+    <div class="pesquisa-form" [formGroup]="form">
+      <h4>Selecione o Parâmetro</h4>
+      <div class="row">
+        <div class="col">
+          <label for="parametros">Parâmetro</label>
+          <select id="parametros" formControlName="selectedParametroId">
+            <option value="" disabled>Selecione</option>
+            <option *ngFor="let parametro of parametros" [value]="parametro.id">
+              {{ parametro.descritivo}}
+            </option>
+          </select>
+        </div>
+        <div class="col btn-pesquisar">
+          <button type="button" class="btn primary" (click)="onPesquisar()">Pesquisar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="opcoes-cadastradas">
+    <div class="header">
+      <h4>Opções Cadastradas</h4>
+      <div class="col btn-cadastrar">
+        <button *ngIf="opcoesCadastradas.length > 0" type="button" class="btn primary" (click)="onAdicionar()">Adicionar</button>
+      </div>
+    </div>
+    <table class="param-table">
+      <thead>
+      <tr class="headers-param-table">
+        <th>#</th>
+        <th>Descritivo</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let param of opcoesCadastradas; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ param.descritivo }}</td>
+        <td>
+          <label class="switch">
+            <input type="checkbox" [checked]="param.status" (change)="onStatusChange(param)">
+            <span class="slider round"></span>
+          </label>
+        </td>
+        <td>
+          <button class="icon-button" (click)="onEditar(param.id)">
+            <mat-icon>edit_square</mat-icon>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <mat-paginator [length]="totalElements"
+                 [pageSize]="size"
+                 [pageSizeOptions]="[10, 20, 50]"
+                 (page)="onPageChange($event)">
+  </mat-paginator>
+</div>

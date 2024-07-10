@@ -1,0 +1,24 @@
+<div class="login-container">
+  <div class="logo-container">
+    <img ngSrc="/assets/logo.png" alt="Logo" class="logo" height="208" width="188">
+    <div class="title-container">
+      <h2 class="titulo">Sistema CCO</h2>
+    </div>
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div class="card">
+      <p class="credential-info">Informe suas credenciais da rede Sabesp</p>
+      <span class="matricula"> Matrícula ou e-mail </span>
+      <input class="inputMatricula" pInputText formControlName="username" required />
+      <span class="senha">Senha</span>
+      <div class="box">
+        <input [type]="senhaVisivel ? 'text' : 'password'" class="inputSenha" formControlName="password" />
+        <button class="hidePassword" type="button" mat-icon-button matSuffix (click)="senhaVisivel = !senhaVisivel"
+                [attr.aria-label]="'Hide password'" [attr.aria-pressed]="!senhaVisivel">
+          <mat-icon style="position: absolute; top: 10%; right: 10%">{{ senhaVisivel ? 'visibility' : 'visibility_off' }}</mat-icon>
+        </button>
+      </div>
+      <button class="button-login" [disabled]="!loginForm.valid">Acessar</button>
+    </div>
+  </form>
+</div>

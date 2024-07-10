@@ -1,0 +1,46 @@
+.custom-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20vh;
+  margin-top: 20px;
+}
+
+.form-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  padding: 16px;
+}
+
+.form-header {
+  border-bottom: 2px solid #eeeeee;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+}
+
+.search-container {
+  position: relative;
+  left: -620px;
+  transform: translateX(388%);
+  max-width: 300px;
+  margin-top: 16px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-button {
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}

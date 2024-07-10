@@ -1,0 +1,85 @@
+<!-- solicitacao-acesso.component.html -->
+<form [formGroup]="form" novalidate class="custom-form">
+  <div class="form-card">
+    <div class="form-header">
+      <h3>Formulário de Solicitação de Acesso</h3>
+      <span>Informações de Cadastro</span>
+    </div>
+    <div class="form-content">
+      <div class="row">
+        <div class="col">
+          <label for="nomeCompleto">Nome Completo</label>
+          <input id="nomeCompleto" type="text" formControlName="nome" placeholder="Nome Sobrenome do Usuário">
+        </div>
+        <div class="col">
+          <label for="matricula">Matrícula</label>
+          <input id="matricula" type="text" formControlName="matricula" placeholder="0000000">
+        </div>
+        <div class="col">
+          <label for="funcao">Função</label>
+          <input id="funcao" type="text" formControlName="funcao" placeholder="Função do Usuário">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="unidade">Unidade</label>
+          <input id="unidade" type="text" formControlName="unidade" placeholder="UNN - Unidade de Negócio Norte" >
+        </div>
+        <div class="col">
+          <label for="perfil">Perfil</label>
+          <select id="perfil" formControlName="perfil">
+            <option *ngFor="let perfil of perfis" [value]="perfil.value">{{ perfil.label }}</option>
+          </select>
+        </div>
+      </div>
+      <h3>Contato</h3>
+      <div class="row">
+        <div class="col">
+          <label for="telefone">Telefone</label>
+          <input id="telefone" type="text" formControlName="telefone" placeholder="(00) 0000-0000">
+        </div>
+        <div class="col">
+          <label for="email">E-mail</label>
+          <input id="email" type="text" formControlName="email" placeholder="usuario@sabesp.com.br">
+        </div>
+      </div>
+      <h3>Endereço</h3>
+      <div class="row">
+        <div class="col">
+          <label for="cep">CEP</label>
+          <input id="cep" type="text" formControlName="cep" placeholder="CEP">
+        </div>
+        <div class="col">
+          <label for="estado">Estado</label>
+          <select id="estado" formControlName="estado">
+            <option *ngFor="let estado of estados" [value]="estado.value">{{ estado.label }}</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="cidade">Cidade</label>
+          <select id="cidade" formControlName="cidade">
+            <option *ngFor="let cidade of cidades" [value]="cidade.value">{{ cidade.label }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="bairro">Bairro</label>
+          <input id="bairro" type="text" formControlName="bairro" placeholder="Bairro">
+        </div>
+        <div class="col">
+          <label for="logradouro">Logradouro</label>
+          <input id="logradouro" type="text" formControlName="logradouro" placeholder="Logradouro">
+        </div>
+        <div class="col">
+          <label for="complemento">Complemento</label>
+          <input id="complemento" type="text" formControlName="complemento" placeholder="Complemento">
+        </div>
+      </div>
+    </div>
+    <div class="form-footer">
+      <button type="button" class="btn secondary" (click)="onLogin()">Cancelar</button>
+      <button type="submit" class="btn primary" (click)=onCadastro()>Solicitar acesso</button>
+    </div>
+  </div>
+</form>

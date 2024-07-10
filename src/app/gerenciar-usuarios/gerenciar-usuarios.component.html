@@ -1,0 +1,131 @@
+<!-- gerenciar-usuarios.component.html -->
+<div class="gerenciar-usuarios">
+  <h2>Gerenciar Usuários</h2>
+  <div class="pesquisar-usuario">
+    <div class="pesquisa-form">
+      <div class="row">
+        <div class="col">
+          <label for="matriculaOuNome">Matrícula ou Nome</label>
+          <input id="matriculaOuNome" type="text" placeholder="Pesquisar por Matrícula ou Nome..."
+                 formControlName="matriculaOuNome">
+        </div>
+        <div class="col">
+          <label for="unidade">Unidade</label>
+          <input id="unidade" type="text" placeholder="Unidade" formControlName="unidade">
+        </div>
+        <div class="col">
+          <label for="perfil">Perfil</label>
+          <select id="perfil" formControlName="perfil">
+            <option value="">Selecione</option>
+            <option *ngFor="let perfil of perfis" [value]="perfil.value">{{ perfil.label }}</option>
+          </select>
+        </div>
+        <div class="col btn-pesquisar">
+          <button type="button" class="btn primary" (click)="onPesquisar()">Pesquisar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-content">
+    <ul class="tabs">
+      <li [class.active]="activeTab === 'cadastrados'" (click)="activeTab = 'cadastrados'">Cadastrados</li>
+      <li [class.active]="activeTab === 'solicitacoes'" (click)="activeTab = 'solicitacoes'">Solicitações de Acesso</li>
+      <li [class.active]="activeTab === 'aprovacoes'" (click)="activeTab = 'aprovacoes'">Aprovações de Perfis</li>
+    </ul>
+    <div *ngIf="activeTab === 'cadastrados'">
+      <table class="usuarios-tabela">
+        <thead>
+        <tr>
+          <th>Matrícula</th>
+          <th>Nome</th>
+          <th>Perfil</th>
+          <th>Unidade</th>
+          <th>Situação</th>
+          <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let usuario of usuariosCadastrados">
+          <td>{{ usuario?.matricula }}</td>
+          <td>{{ usuario?.nome }}</td>
+          <td>{{ usuario?.perfil }}</td>
+          <td>{{ usuario?.unidade || 'N/A' }}</td>
+          <td>
+            <label class="switch">
+              <input type="checkbox" [checked]="usuario.ativo" (change)="onSituacaoChange(usuario)">
+              <span class="slider round"></span>
+            </label>
+          </td>
+          <td>
+            <button class="icon-button" (click)="onEditarUsuario(usuario.id)">
+              <mat-icon>edit_square</mat-icon>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="activeTab === 'solicitacoes'">
+      <table class="usuarios-tabela">
+        <thead>
+        <tr>
+          <th>Matrícula</th>
+          <th>Nome</th>
+          <th>Função</th>
+          <th>Perfil</th>
+          <th>Unidade</th>
+          <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let usuario of usuariosCadastrados">
+          <td>{{ usuario?.matricula }}</td>
+          <td>{{ usuario?.nome }}</td>
+          <td>{{ usuario?.funcao || 'N/A' }}</td>
+          <td>{{ usuario?.perfil }}</td>
+          <td>{{ usuario?.unidade || 'N/A' }}</td>
+          <td>
+            <button class="icon-button" (click)="onEditarUsuario(usuario.id)">
+              <mat-icon>edit_square</mat-icon>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="activeTab === 'aprovacoes'">
+      <table class="usuarios-tabela">
+        <thead>
+        <tr>
+          <th>Matrícula</th>
+          <th>Nome</th>
+          <th>Função</th>
+          <th>Telefone</th>
+          <th>Unidade</th>
+          <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let usuario of usuariosCadastrados">
+          <td>{{ usuario?.matricula }}</td>
+          <td>{{ usuario?.nome }}</td>
+          <td>{{ usuario?.funcao || 'N/A' }}</td>
+          <td>{{ usuario?.telefone }}</td>
+          <td>{{ usuario?.unidade || 'N/A' }}</td>
+          <td>
+            <button class="icon-button" (click)="onEditarUsuario(usuario.id)">
+              <mat-icon>edit_square</mat-icon>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <mat-paginator [length]="totalElements"
+                   [pageSize]="size"
+                   [pageSizeOptions]="[10, 20, 50]"
+                   (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+</div>
+

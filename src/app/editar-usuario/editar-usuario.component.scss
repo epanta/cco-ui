@@ -1,0 +1,88 @@
+.editar-usuario {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.editar-usuario h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.editar-usuario form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.endereco {
+  grid-column: 1 / -1;
+}
+
+.endereco h3 {
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="button"] {
+  background: #6c757d;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+button[type="submit"] {
+  background: #007bff;
+  color: #ffffff;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .editar-usuario form {
+    grid-template-columns: 1fr;
+  }
+}

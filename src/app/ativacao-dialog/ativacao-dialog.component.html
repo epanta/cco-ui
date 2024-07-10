@@ -1,0 +1,14 @@
+<div class="modal">
+  <div class="permissaoModal">
+    <p class="titulo">MATRÍCULA SEM PERMISSÃO</p>
+  </div>
+  <mat-dialog-content class="mat-typography">
+    <mat-icon>error</mat-icon>
+    <p>Deseja mesmo "Desabilitar" o usuário?</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button class="fecharModal" (click)="fecharDialogo()">Voltar</button>
+    <button class="solicitarAcesso" (click)="confirmarAtivacao()">Confirmar
+    </button>
+  </mat-dialog-actions>
+</div>
