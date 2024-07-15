@@ -9,23 +9,15 @@
         <mat-icon>home</mat-icon>
         <span class="menu-text" *ngIf="!isCollapsed">Página Inicial</span>
       </a>
-      <a mat-list-item routerLink="/cco" routerLinkActive="active-link">
+      <a mat-list-item (click)="toggleSubMenu('monitoramento')">
         <mat-icon>assignment</mat-icon>
-        <span class="menu-text" *ngIf="!isCollapsed">CCO</span>
+        <span class="menu-text" *ngIf="!isCollapsed">Monitoramento</span>
         <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('cco') ? 'expand_less' : 'expand_more' }}</mat-icon>
       </a>
-      <mat-nav-list *ngIf="isSubMenuOpen('cco')">
-      </mat-nav-list>
-      <a mat-list-item routerLink="/comunicacao-interna" routerLinkActive="active-link">
-        <mat-icon>description</mat-icon>
-        <span class="menu-text" *ngIf="!isCollapsed">Comunicação Interna</span>
-      </a>
-      <a mat-list-item routerLink="/ensaios" routerLinkActive="active-link">
-        <mat-icon>science</mat-icon>
-        <span class="menu-text" *ngIf="!isCollapsed">Ensaios</span>
-        <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('ensaios') ? 'expand_less' : 'expand_more' }}</mat-icon>
-      </a>
-      <mat-nav-list *ngIf="isSubMenuOpen('ensaios')">
+      <mat-nav-list *ngIf="isSubMenuOpen('monitoramento')">
+        <a mat-list-item routerLink="/planilha-cco" routerLinkActive="active-link">
+          Planilha CCO
+        </a>
       </mat-nav-list>
       <a mat-list-item (click)="toggleSubMenu('sistema')">
         <mat-icon>settings</mat-icon>
@@ -33,11 +25,33 @@
         <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('sistema') ? 'expand_less' : 'expand_more' }}</mat-icon>
       </a>
       <mat-nav-list *ngIf="isSubMenuOpen('sistema')">
-        <a mat-list-item routerLink="/gerenciar-usuarios" routerLinkActive="active-link">
-               Gerenciar Usuários
+        <a mat-list-item routerLink="/central-notificacao" routerLinkActive="active-link">
+               Central de Notificações
         </a>
-        <a mat-list-item routerLink="/parametros" routerLinkActive="active-link">
-               Parâmetros
+        <a mat-list-item routerLink="/meu-cadastro" routerLinkActive="active-link">
+               Meu Cadastro
+        </a>
+      </mat-nav-list>
+      <a mat-list-item (click)="toggleSubMenu('administracao')">
+        <mat-icon>assignment</mat-icon>
+        <span class="menu-text" *ngIf="!isCollapsed">Administração</span>
+        <mat-icon class="expand-icon" *ngIf="!isCollapsed">{{ isSubMenuOpen('administracao') ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </a>
+      <mat-nav-list *ngIf="isSubMenuOpen('administracao')">
+        <a mat-list-item routerLink="/auditoria" routerLinkActive="active-link">
+          Auditoria
+        </a>
+        <a mat-list-item routerLink="/auditoria" routerLinkActive="active-link">
+          Gerenciar
+        </a>
+        <a mat-list-item routerLink="/auditoria" routerLinkActive="active-link">
+          Desbloqueio de Planilha CCO
+        </a>
+        <a mat-list-item routerLink="/auditoria" routerLinkActive="active-link">
+          Usuários
+        </a>
+        <a mat-list-item routerLink="/auditoria" routerLinkActive="active-link">
+          Histórico de Importações
         </a>
       </mat-nav-list>
     </mat-nav-list>
