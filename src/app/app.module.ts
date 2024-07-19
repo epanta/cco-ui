@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {SolicitacaoAcessoComponent} from "./solicitacao-acesso/solicitacao-acesso.component";
+import {MeuCadastroComponent} from "./meu-cadastro/meu-cadastro.component";
 import {HomeComponent} from "./home/home.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {MatSidenavModule} from "@angular/material/sidenav";
@@ -35,6 +36,7 @@ import {MatSelectModule} from "@angular/material/select";
     BrowserAnimationsModule,
     NoopAnimationsModule,
     SolicitacaoAcessoComponent,
+    MeuCadastroComponent,
     HomeComponent,
     AppRoutingModule,
     MatSidenavModule,
