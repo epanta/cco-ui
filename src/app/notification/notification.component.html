@@ -1,0 +1,48 @@
+<div class="parametros">
+  <div class="header">
+    <span>Central de Notificações</span>
+    <button mat-button [matMenuTriggerFor]="configMenu" class="menuMais">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #configMenu="matMenu">
+      <button mat-button (click)="openDialog()">Gerenciar Notificações</button>
+    </mat-menu>
+  </div>
+</div>
+<div class="opcoes-cadastradas">
+  <div class="header">
+    <h4>Notificações</h4>
+  </div>
+  <table class="param-table">
+    <thead>
+      <tr class="headers-param-table">
+        <th>MENSAGEM</th>
+        <th>DATA E HORA DA NOTIFICACÃO</th>
+        <th>FUNCIONALIDADE</th>
+        <th>ACÕES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let param of notificacoesCadastradas; let i = index">
+        <td>{{ param.msg }}</td>
+        <td>{{ param.dateNotification }}</td>
+        <td>{{ param.functionality }}</td>
+        <td>
+          <button
+            class="icon-button"
+            (click)="onExcluir(param.id, param.functionality)"
+          >
+            <mat-icon>delete_square</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<mat-paginator
+  [length]="totalElements"
+  [pageSize]="size"
+  [pageSizeOptions]="[10, 20, 50]"
+  (page)="onPageChange($event)"
+>
+</mat-paginator>

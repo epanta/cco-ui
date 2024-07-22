@@ -1,0 +1,39 @@
+.gerenciar-notificacoes {
+  justify-content: center;
+  align-items: center;
+  padding: 13px;
+}
+
+.exibir-desativacao {
+  padding: 10px;
+}
+
+h2 {
+  margin-bottom: 13px;
+}
+
+.button-row {
+  display: inline-flex;
+  margin-top: auto;
+  flex-direction: column;
+}
+
+.button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.button-save {
+  color: white;
+  background-color: rgb(75, 75, 239);
+}
+
+.button-cancel {
+  color: white;
+  background-color: red;
+}
+
+.button-inline {
+  display: inline-block;
+  margin-right: 10px; /* Espaço entre os botões */
+  padding: 8px 16px; /* Ajuste o padding conforme necessário */
+}
