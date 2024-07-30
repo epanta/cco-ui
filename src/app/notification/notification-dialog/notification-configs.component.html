@@ -1,0 +1,38 @@
+<div class="gerenciar-notificacoes">
+  <h4>Gerenciar notificações</h4>
+  <div class="">
+    <p>Selecione as notificações que você deseja receber por e-mail:</p>
+
+    <div
+      *ngFor="let item of notificacoesConfiguradas"
+      class="exibir-desativacao"
+    >
+      <mat-slide-toggle
+        [checked]="item.notificationActive"
+        (change)="updateNotification(item)"
+      >
+        {{ item.dsNameFuncionality }} -
+        <span>{{ item.dsFuncionality }}</span>
+      </mat-slide-toggle>
+    </div>
+  </div>
+</div>
+
+<div class="button-row">
+  <div class="button-inline">
+    <button
+      mat-stroked-button
+      class="button-save"
+      (click)="registrarAlteracao()"
+    >
+      Salvar
+    </button>
+    <button
+      mat-stroked-button
+      class="button-cancel"
+      (click)="cancelarAlteracao()"
+    >
+      Cancelar
+    </button>
+  </div>
+</div>

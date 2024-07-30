@@ -5,6 +5,8 @@ import {SolicitacaoAcessoComponent} from './solicitacao-acesso/solicitacao-acess
 import {MeuCadastroComponent} from "./meu-cadastro/meu-cadastro.component";
 import {LoginComponent} from "./login/login.component";
 import {NavBarComponent} from "./nav-bar/nav-bar.component";
+import { NotificationConfigsComponent } from './notification/notification-dialog/notification-configs.component';
+import {NotificationComponent} from "./notification/notification.component";
 import {GerenciarUsuariosComponent} from "./gerenciar-usuarios/gerenciar-usuarios.component";
 import {EditarUsuarioComponent} from "./editar-usuario/editar-usuario.component";
 import {ComunicacaoInternaComponent} from "./comunicacao-interna/comunicacao-interna.component";
@@ -25,7 +27,9 @@ export const routes: Routes = [
       {path: 'editar-usuario/:id', component: EditarUsuarioComponent},
       {path: 'comunicacao-interna', component: ComunicacaoInternaComponent},
       {path: 'nova-comunicacao-interna', component: NovaComunicacaoInternaComponent},
-      {path: 'parametros', component: ParametrosComponent}
+      {path: 'parametros', component: ParametrosComponent},
+      { path: 'notification', component: NotificationComponent },
+      { path: 'notification/config', component: NotificationConfigsComponent }
     ]
   }
 ];
