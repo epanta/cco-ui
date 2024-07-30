@@ -4,7 +4,7 @@ import {MatCard, MatCardActions, MatCardContent, MatCardTitle} from "@angular/ma
 import {MatFormField} from "@angular/material/form-field";
 import {catchError, EMPTY, tap} from "rxjs";
 import {PermissaoDialogComponent} from "../permissao-dialog/permissao-dialog.component";
-import {AuthService} from "../services/auth.service";
+import {UserService} from "../services/user.service";
 import {MatDialog} from "@angular/material/dialog";
 import {NavBarComponent} from "../nav-bar/nav-bar.component";
 import {CardModule} from "primeng/card";
@@ -54,7 +54,7 @@ export class MeuCadastroComponent implements OnInit {
     {label: 'São Paulo', value: 'SAO PAULO'}
   ];
 
-  constructor(private authService: AuthService, private fb: FormBuilder,
+  constructor(private userService: UserService, private fb: FormBuilder,
               public dialog: MatDialog,
               private router: Router) {
   }
@@ -75,9 +75,27 @@ export class MeuCadastroComponent implements OnInit {
       logradouro: ['', Validators.required],
       complemento: ['']
     });
+
+    this.inativarForms();
+
   }
 
-  onCadastro() {
+  inativarForms() {
+    this.form.get('nome')?.disable();
+    this.form.get('matricula')?.disable();
+    this.form.get('funcao')?.disable();
+    this.form.get('unidade')?.disable();
+    this.form.get('perfil')?.disable();
+    this.form.get('email')?.disable();
+    this.form.get('cep')?.disable();
+    this.form.get('estado')?.disable();
+    this.form.get('cidade')?.disable();
+    this.form.get('bairro')?.disable();
+    this.form.get('logradouro')?.disable();
+    this.form.get('complemento')?.disable();
+  }
+
+  onUpdate() {
     const dialogRef = this.dialog.open(ConfirmacaoSolicitacaoDialogComponent, {
       width: '700px',
       height: '412px',
@@ -85,14 +103,14 @@ export class MeuCadastroComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.authService.createUsuarioSemPermissao(this.form.value).pipe(
+        this.userService.atualizarDadosDoUsuario(this.form.value).pipe(
           tap(success => {
-            console.log('Usuário criado com sucesso:', success);
+            console.log('Dados do usuário alterados com sucesso:', success);
           }),
           catchError(error => {
-            console.error('Erro ao criar usuário:', error);
+            console.error('Erro ao alterar dados do usuário:', error);
             this.dialog.open(PermissaoDialogComponent, {
-              data: {message: 'Falha ao criar usuário. Tente novamente mais tarde.'}
+              data: {message: 'Falha ao alterar dados do usuário. Tente novamente mais tarde.'}
             });
             return EMPTY;
           })
@@ -101,7 +119,6 @@ export class MeuCadastroComponent implements OnInit {
     });
     console.log('Dados do formulário:', this.form.value);
   }
-
 
   onLogin() {
     this.router.navigate(['/login']).then(r => {

@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col">
           <label for="nomeCompleto">Nome Completo</label>
-          <input id="nomeCompleto" type="text" formControlName="nome" placeholder="Nome Sobrenome do Usuário">
+          <input id="nomeCompleto" type="disabled" formControlName="nome" placeholder="Nome Sobrenome do Usuário" [readOnly]="true" [disabled]="true">
         </div>
         <div class="col">
           <label for="matricula">Matrícula</label>
@@ -79,7 +79,7 @@
     </div>
     <div class="form-footer">
       <button type="button" class="btn secondary" (click)="onLogin()">Cancelar</button>
-      <button type="submit" class="btn primary" (click)=onCadastro()>Solicitar acesso</button>
+      <button type="submit" class="btn primary" (click)=onUpdate()>Alterar Cadastro</button>
     </div>
   </div>
 </form>
