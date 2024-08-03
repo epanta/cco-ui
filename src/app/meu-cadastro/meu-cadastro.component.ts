@@ -43,14 +43,11 @@ import {
 })
 export class MeuCadastroComponent implements OnInit {
   form!: FormGroup;
-  perfis = [
+  niveisDePermissao = [
     {label: 'Representante', value: 'Representante'},
     {label: 'Consulta', value: 'Consulta'}
   ];
-  estados = [
-    {label: 'SP', value: 'SP'}
-  ];
-  cidades = [
+  municipios = [
     {label: 'São Paulo', value: 'SAO PAULO'}
   ];
 
@@ -61,19 +58,16 @@ export class MeuCadastroComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      nome: ['', Validators.required],
+      nomeDoUsuario: ['', Validators.required],
       matricula: ['', Validators.required],
-      funcao: ['', Validators.required],
+      login: ['', Validators.required],
       unidade: ['', Validators.required],
-      perfil: ['', Validators.required],
-      telefone: ['', Validators.required],
+      centroDeCusto: ['', Validators.required],
+      municipio: ['', Validators.required],
+      nivelDePermissao: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      cep: ['', Validators.required],
-      estado: ['', Validators.required],
-      cidade: ['', Validators.required],
-      bairro: ['', Validators.required],
-      logradouro: ['', Validators.required],
-      complemento: ['']
+      telefone: ['', Validators.required],
+      ramal: ['', Validators.required],
     });
 
     this.inativarForms();
@@ -81,18 +75,14 @@ export class MeuCadastroComponent implements OnInit {
   }
 
   inativarForms() {
-    this.form.get('nome')?.disable();
+    this.form.get('nomeDoUsuario')?.disable();
     this.form.get('matricula')?.disable();
-    this.form.get('funcao')?.disable();
+    this.form.get('login')?.disable();
     this.form.get('unidade')?.disable();
-    this.form.get('perfil')?.disable();
+    this.form.get('centroDeCusto')?.disable();
+    this.form.get('municipio')?.disable();
+    this.form.get('nivelDePermissao')?.disable();
     this.form.get('email')?.disable();
-    this.form.get('cep')?.disable();
-    this.form.get('estado')?.disable();
-    this.form.get('cidade')?.disable();
-    this.form.get('bairro')?.disable();
-    this.form.get('logradouro')?.disable();
-    this.form.get('complemento')?.disable();
   }
 
   onUpdate() {

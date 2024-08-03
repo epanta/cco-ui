@@ -68,7 +68,7 @@ import {MatSelectModule} from "@angular/material/select";
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: []
 })
 export class AppModule { }
