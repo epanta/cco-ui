@@ -1,7 +1,15 @@
 export interface NotificacaoForm {
   id: number;
-  msg:string;
-  functionality:string;
-  dateNotification:string;
+  mensagem:string;
+  funcionalidade:string;
+  dataHora:string;
+  dataPlanilha:string;
+  municipio:string;
+  ultimoAjuste:string;
+  operadorResponsavel:string;
+  prazoAjuste:number;
+  motivo:string;
+  dataLiberacao:string;
+  dataFinal:string;
   status: boolean;
 }

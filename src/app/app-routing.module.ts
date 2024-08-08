@@ -12,6 +12,7 @@ import {EditarUsuarioComponent} from "./editar-usuario/editar-usuario.component"
 import {ComunicacaoInternaComponent} from "./comunicacao-interna/comunicacao-interna.component";
 import {ParametrosComponent} from "./parametros/parametros.component";
 import {NovaComunicacaoInternaComponent} from "./nova-comunicacao-interna/nova-comunicacao-interna.component";
+import { GerenciarComponent } from './gerenciar/gerenciar.component';
 
 export const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -29,7 +30,8 @@ export const routes: Routes = [
       {path: 'nova-comunicacao-interna', component: NovaComunicacaoInternaComponent},
       {path: 'parametros', component: ParametrosComponent},
       { path: 'notification', component: NotificationComponent },
-      { path: 'notification/config', component: NotificationConfigsComponent }
+      { path: 'notification/config', component: NotificationConfigsComponent },
+      { path: 'gerenciar', component: GerenciarComponent },
     ]
   }
 ];

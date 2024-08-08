@@ -21,12 +21,22 @@ import { NotificacaoService } from '../services/notificacao.service';
 import { NotificationConfigsComponent } from './notification-dialog/notification-configs.component';
 import { NotificacaoForm } from '../models/NotificacaoForm';
 import { tap, catchError, EMPTY } from 'rxjs';
+import { VisualizacaoNotificacaoDialogComponent } from './visualizacao-notificacao-dialog/visualizacao-notificacao-dialog.component';
 
 export interface NotificacaoCadastrada {
   id: number;
-  msg: string;
-  functionality: string;
-  dateNotification: string;
+  mensagem:string;
+  funcionalidade:string;
+  dataHora:string;
+  dataPlanilha:string;
+  municipio:string;
+  ultimoAjuste:string;
+  operadorResponsavel:string;
+  prazoAjuste:number;
+  motivo:string;
+  dataLiberacao:string;
+  dataFinal:string;
+  status: boolean;
 }
 
 @Component({
@@ -100,24 +110,39 @@ export class NotificationComponent implements OnInit {
 
   }
 
-  onExcluir(id: number, functionality:string) {
+  onExcluir(id: number, funcionalidade: string) {
 
-    var r=confirm('Deseja mesmo excluir a Funcionalidade ' + functionality);
+    var r=confirm('Deseja mesmo excluir o registro? ' + funcionalidade);
 
     if(r==true){
 
-      this.notificacaoService.alterarSituacao(id, false).pipe(
-        tap(success => {
-          console.log('Notificação Inativada com sucesso:', success);
-        }),
-        catchError(error => {
-          console.error('Erro ao criar usuário:', error);
+      this.notificacaoService.excluirNotificacao(id).subscribe({
+        next: (success) => {
+          console.log('Notificação excluída com sucesso:', success);
+          this.notificacaoService.listarNotificacoes(this.page, this.size);
+          this.listarNotificacoes(this.page, this.size);
+        },
+        error: (error) => {
+          if(error.status == 200){
+            this.notificacaoService.listarNotificacoes(this.page, this.size);
+            this.listarNotificacoes(this.page, this.size);
+            return
+          }
+          console.error('Erro ao excluir notificação:', error);
           return EMPTY;
-        })
-      ).subscribe();
+        }
+      });
     }
+   
   }
 
+  onVisualizar(notificacaoCadastrada: NotificacaoForm) {
 
+    this.dialog.open(VisualizacaoNotificacaoDialogComponent, {
+      height: '580px',
+      width: '700px',
+      data: notificacaoCadastrada
+    });
+  }
 
 }

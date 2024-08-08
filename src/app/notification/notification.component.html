@@ -1,12 +1,6 @@
 <div class="parametros">
   <div class="header">
     <span>Central de Notificações</span>
-    <button mat-button [matMenuTriggerFor]="configMenu" class="menuMais">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #configMenu="matMenu">
-      <button mat-button (click)="openDialog()">Gerenciar Notificações</button>
-    </mat-menu>
   </div>
 </div>
 <div class="opcoes-cadastradas">
@@ -16,21 +10,27 @@
   <table class="param-table">
     <thead>
       <tr class="headers-param-table">
-        <th>MENSAGEM</th>
-        <th>DATA E HORA DA NOTIFICACÃO</th>
-        <th>FUNCIONALIDADE</th>
-        <th>ACÕES</th>
+        <th>Funcionalidade</th>
+        <th>Mensagem</th>
+        <th>Data e Hora da Notificação</th>
+        <th>Ação</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let param of notificacoesCadastradas; let i = index">
-        <td>{{ param.msg }}</td>
-        <td>{{ param.dateNotification }}</td>
-        <td>{{ param.functionality }}</td>
+        <td>{{ param.funcionalidade }}</td>
+        <td>{{ param.mensagem }}</td>
+        <td>{{ param.dataHora }}</td>
         <td>
           <button
             class="icon-button"
-            (click)="onExcluir(param.id, param.functionality)"
+            (click)="onVisualizar(param)"
+          >
+            <mat-icon>remove_red_eye</mat-icon>
+          </button>
+          <button
+            class="icon-button"
+            (click)="onExcluir(param.id, param.funcionalidade)"
           >
             <mat-icon>delete_square</mat-icon>
           </button>

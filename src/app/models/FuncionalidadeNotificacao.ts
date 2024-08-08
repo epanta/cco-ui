@@ -10,6 +10,11 @@ export interface NotificacaoConfig {
   notificationActive: boolean;
 }
 
+export interface NotificacaoView {
+  id: number;
+  notificationActive: boolean;
+}
+
 export interface PostData {
   notificacaoConfigList: NotificacaoConfig[];
 }

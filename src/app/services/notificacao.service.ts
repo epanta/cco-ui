@@ -17,9 +17,17 @@ export class NotificacaoService {
       .set('page', page.toString())
       .set('size', size.toString());
     return this.http.get(
-      `${this.apiUrl}/listar-notificacoes`, {params}
+      `${this.apiUrl}/notificacoes/listar-notificacoes`, {params}
     );
     
+  }
+
+  excluirNotificacao(id: number): Observable<any> {
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.delete(
+      `${this.apiUrl}/notificacoes/excluir-notificacao/${id}`,
+      { headers: headers }
+    );
   }
 
   alterarSituacao(id: number, status: boolean): Observable<any> {

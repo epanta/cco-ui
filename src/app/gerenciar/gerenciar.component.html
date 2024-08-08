@@ -1,0 +1,52 @@
+<div class="estruturas">
+    <div class="tab-content">
+      <ul class="tabs">
+        <li [class.active]="activeTab === 'municipios'" (click)="activeTab = 'municipios'">MUNICÍPIOS</li>
+        <li [class.active]="activeTab === 'sistemas'" (click)="activeTab = 'sistemas'">SISTEMAS</li>
+        <li [class.active]="activeTab === 'subsistemas'" (click)="activeTab = 'subsistemas'">SUBSISTEMAS</li>
+        <li [class.active]="activeTab === 'instalacoes'" (click)="activeTab = 'instalacoes'">INSTALAÇÕES</li>
+        <li [class.active]="activeTab === 'processos'" (click)="activeTab = 'processos'">PROCESSOS</li>
+        <li [class.active]="activeTab === 'tags'" (click)="activeTab = 'tags'">TAGS</li>
+        <li [class.active]="activeTab === 'parametros'" (click)="activeTab = 'parametros'">PARÂMETROS</li>
+
+      </ul>
+      <div *ngIf="activeTab === 'sistemas'">
+        <table class="usuarios-tabela">
+          <thead>
+          <tr>
+            <th>Matrícula</th>
+            <th>Nome</th>
+            <th>Perfil</th>
+            <th>Unidade</th>
+            <th>Situação</th>
+            <th>Ações</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr >
+            <td> Lorem </td>
+            <td> IMPSUM </td>
+            <td>UM</td>
+            <td>DOLOR</td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" >
+                <span class="slider round"></span>
+              </label>
+            </td>
+            <td>
+              <button class="icon-button" >
+                <mat-icon>edit_square</mat-icon>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="activeTab === 'municipios'">
+          <app-municipios></app-municipios>
+      </div>
+    </div>
+  </div>
+  
+  

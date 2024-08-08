@@ -9,6 +9,7 @@ import {SolicitacaoAcessoComponent} from "./solicitacao-acesso/solicitacao-acess
 import {MeuCadastroComponent} from "./meu-cadastro/meu-cadastro.component";
 import { NotificationConfigsComponent } from './notification/notification-dialog/notification-configs.component';
 import {NotificationComponent} from "./notification/notification.component";
+import {GerenciarComponent} from "./gerenciar/gerenciar.component";
 import {HomeComponent} from "./home/home.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {MatSidenavModule} from "@angular/material/sidenav";
@@ -39,6 +40,9 @@ import {MatSelectModule} from "@angular/material/select";
     NoopAnimationsModule,
     SolicitacaoAcessoComponent,
     MeuCadastroComponent,
+    NotificationComponent,
+    NotificationConfigsComponent,
+    GerenciarComponent,
     HomeComponent,
     AppRoutingModule,
     MatSidenavModule,

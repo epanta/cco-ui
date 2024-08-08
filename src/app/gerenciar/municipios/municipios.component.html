@@ -1,0 +1,102 @@
+<div class="pesquisar-usuario">
+  <div class="pesquisa-form">
+    <h4>Pesquisar</h4>
+    <mat-card style="padding: 2em;">
+      <div class="row">
+        <div class="col-md-4">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="codigo">Municípios</label>
+            <select id="codigo" [(ngModel)]="selectedValue">
+              <option value="">Selecione</option>
+              <option *ngFor="let item of municipio" [value]="item.municipio"> {{item.municipio}} </option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="sigla">Sigla</label>
+            <select id="sigla" [(ngModel)]="selectedValue">
+              <option value="">Selecione</option>
+              <option *ngFor="let item of municipio" [value]="item.sigla"> {{item.sigla}} </option>
+            </select>''
+          </div>
+        </div>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+        <div class="col btn-pesquisar">
+          <button type="button" class="btn primary" (click)="loadSearch(selectedValue, true)">Limpar</button>
+          <button type="button" class="btn primary" (click)="loadSearch(selectedValue, true)">Pesquisar</button>
+        </div>
+      </div>
+      </div>
+    </mat-card>
+    <div>
+      <div class="row-cols-auto">
+        <div class="col-auto">
+          <h4>Municípios</h4>
+        </div>
+        <div class="col-auto">
+          <button type="button" class="btn primary">Colunas</button>
+          <button type="button" class="btn primary">Exportar</button>
+          <button type="button" mat-button (click)="openDialog()" class="btn "> + Adicionar</button>
+        </div>
+
+      </div>
+
+      <table class="usuarios-tabela">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Sigla</th>
+            <th>Município</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="!activeSearch">
+          <tr *ngFor="let item of municipio">
+            <td>{{ item?.codigo }}</td>
+            <td>{{ item?.sigla }}</td>
+            <td>{{ item?.municipio }}</td>
+            <td>{{ item?.descricao }}</td>
+            <td>
+              <button class="icon-button" (click)="openEditDialog(item)">
+                <mat-icon>edit_square</mat-icon>
+              </button>
+              <button class="icon-button">
+                <mat-icon>assignment</mat-icon>
+              </button>
+              <button class="icon-button" color="warn" (click)="deleteItem(item.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+
+        <tbody *ngIf="activeSearch">
+          <tr *ngFor="let item of municipioFilter.dataList">
+            <td>{{ item.codigo }}</td>
+            <td>{{ item.sigla }}</td>
+            <td>{{ item.municipio }}</td>
+            <td>{{ item.descricao }}</td>
+
+            <td>
+              <button class="icon-button" (click)="openEditDialog(item)">
+                <mat-icon>edit_square</mat-icon>
+              </button>
+              <button class="icon-button">
+                <mat-icon>assignment</mat-icon>
+              </button>
+              <button class="icon-button" color="warn" (click)="deleteItem(item.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <mat-paginator [length]="totalElements" [pageSize]="size" [pageSizeOptions]="[10, 20, 50]"
+      (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="modal">
+  <div class="permissaoModal">
+    <p class="titulo">Notificação</p>
+  </div>
+  <mat-dialog-content class="mat-typography">
+    <div class="modal-row">
+      <div class="modal-column">
+        <p align="end"><b>{{ data.funcionalidade }}</b></p>
+        <br>
+        <p align="right">{{ data.mensagem }}</p>
+        <br>
+        <p><b>Data da Planilha:</b> {{ data.dataHora }}</p>
+        <p><b>Município:</b> {{ data.municipio }}</p>
+        <p><b>Último Ajuste:</b> {{ data.ultimoAjuste }}</p>
+        <p><b>Operador Responsável:</b> {{ data.operadorResponsavel }}</p>
+        <p><b>Prazo de Ajuste (dias corridos):</b> {{ data.prazoAjuste }}</p>
+        <p><b>Motivo:</b> {{ data.motivo }}</p>
+        <p><b>Data de Liberação:</b> {{ data.dataLiberacao }}</p>
+        <p><b>Data da Final:</b> {{ data.dataFinal }}</p>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button class="fecharModal" (click)="fecharDialogo()">Fechar</button>
+    <button class="solicitarAcesso" (click)="solicitarAcesso()">Acessar Planilha CCO
+    </button>
+  </mat-dialog-actions>
+</div>
