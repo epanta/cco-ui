@@ -1,5 +1,5 @@
 <!-- meu-cadastro.component.html -->
-<form [formGroup]="form" novalidate class="custom-form">
+<form [formGroup]="usuarioForm" novalidate class="custom-form">
   <div class="form-card">
     <div class="form-header">
       <h3>Meu Cadastro</h3>
@@ -8,8 +8,8 @@
     <div class="form-content">
       <div class="row">
         <div class="col-md-6">
-          <label for="nomeDoUsuario">Nome do Usuário</label>
-          <input id="nomeDoUsuario" type="text" formControlName="nomeDoUsuario" placeholder="Nome e Sobrenome do Usuário">
+          <label for="nome">Nome do Usuário</label>
+          <input id="nome" type="text" formControlName="nome" placeholder="Nome e Sobrenome">
         </div>
         <div class="col-md-3">
           <label for="matricula">Matrícula</label>
@@ -17,24 +17,23 @@
         </div>
         <div class="col-md-3">
           <label for="login">Login</label>
-          <input id="login" type="text" formControlName="login" placeholder="Login do Usuário">
+          <input id="login" type="text" formControlName="login" placeholder="Login">
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col">
           <label for="unidade">Unidade</label>
-          <input id="unidade" type="text" formControlName="unidade" placeholder="UNN - Unidade de Negócio Norte" >
+          <input id="unidade" type="text" formControlName="unidade" placeholder="Unidade" >
         </div>
         <div class="col">
           <label for="centroDeCusto">Centro de Custo</label>
-          <input id="centroDeCusto" type="text" formControlName="centroDeCusto" placeholder="Centro de Custo do Usuário" >
+          <input id="centroDeCusto" type="text" formControlName="centroDeCusto" placeholder="Centro de Custo" >
         </div>
         <div class="col">
           <label for="municipio">Município</label>
-          <select id="municipio" formControlName="municipio">
-            <option *ngFor="let municipio of municipios" [value]="municipio.value">{{ municipio.label }}</option>
-          </select>
+          <input id="municipio" type="text" formControlName="municipio" placeholder="Municipio" >
+
         </div>
         <div class="col">
           <label for="nivelDePermissao">Nível de Permissão</label>
@@ -45,26 +44,24 @@
       </div>
       <br>
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-6">
           <label for="email">E-mail</label>
           <input id="email" type="text" formControlName="email" placeholder="usuario@sabesp.com.br">
         </div>
         <div class="col-md-3">
           <label for="telefone">Telefone</label>
-          <input id="telefone" type="text" formControlName="telefone" placeholder="(00) 00000-0000">
+          <input id="telefone" type="text" formControlName="telefone" placeholder="(00) 90000-0000">
         </div>
         <div class="col-md-3">
           <label for="ramal">Ramal</label>
           <input id="ramal" type="text" formControlName="ramal" placeholder="(00) 0000-0000">
-        </div>
-        <div class="col-md-3">
         </div>
       </div>
     </div>
     <br>
     <div class="form-footer">
       <button type="button" class="btn secondary" (click)="onLogin()">Cancelar</button>
-      <button type="submit" class="btn primary" (click)=onUpdate()>Salvar</button>
+      <button type="submit" class="btn primary" (click)="onUpdate()">Salvar</button>
     </div>
   </div>
 </form>

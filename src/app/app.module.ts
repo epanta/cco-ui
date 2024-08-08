@@ -7,7 +7,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {SolicitacaoAcessoComponent} from "./solicitacao-acesso/solicitacao-acesso.component";
 import {MeuCadastroComponent} from "./meu-cadastro/meu-cadastro.component";
-import { NotificationConfigsComponent } from './notification/notification-dialog/notification-configs.component';
+import {NotificationConfigsComponent} from './notification/notification-dialog/notification-configs.component';
 import {NotificationComponent} from "./notification/notification.component";
 import {HomeComponent} from "./home/home.component";
 import {AppRoutingModule} from "./app-routing.module";

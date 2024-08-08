@@ -50,7 +50,8 @@ export class UserService {
   atualizarDadosDoUsuario(usuario: any): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json'});
     return this.http.put(
-      `${this.apiUrl}/${usuario.id}`,
+      // `${this.apiUrl}/${usuario.id}`,
+      `${this.apiUrl}/1`,
       usuario,
       { headers }
     );

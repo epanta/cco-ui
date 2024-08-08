@@ -1,28 +1,27 @@
-<div class="modal">
-  <div class="permissaoModal">
-    <p class="titulo">CONFIRMAR SOLICITAÇÃO</p>
-  </div>
-  <mat-dialog-content class="mat-typography">
-    <div class="modal-row">
-      <div class="modal-column">
-        <p>Nome do Usuário: {{ data.nomeDoUsuario }}</p>
-        <p>Matrícula: {{ data.matricula }}</p>
-        <p>Login: {{ data.login }}</p>
-        <p>Unidade: {{ data.unidade }}</p>
-        <p>Centro de Custo: {{ data.centroDeCusto }}</p>
-      </div>
-      <div class="modal-column">
-        <p>Município: {{ data.municipio }}</p>
-        <p>Nível de Permissão: {{ data.nivelDePermissao }}</p>
-        <p>E-mail: {{ data.email }}</p>
-        <p>Telefone: {{ data.telefone }}</p>
-        <p>Ramal: {{ data.ramal }}</p>
-      </div>
-    </div>
-  </mat-dialog-content>
-  <mat-dialog-actions align="end">
-    <button class="fecharModal" (click)="fecharDialogo()">Fechar</button>
-    <button class="solicitarAcesso" (click)="solicitarAcesso()">Confirmar solicitação
-    </button>
-  </mat-dialog-actions>
+<div class="permissaoModal">
+  <p class="titulo">CONFIRMAR SOLICITAÇÃO</p>
 </div>
+<mat-dialog-content class="mat-typography">
+  <div class="modal-row">
+
+    <div class="modal-column">
+      <p>Nome do Usuario: {{ data.nomeDoUsuario }}</p>
+      <p>Matricula: {{ data.matricula }}</p>
+      <p>Login: {{ data.login }}</p>
+      <p>Unidade: {{ data.unidade }}</p>
+      <p>Centro de Custo: {{ data.centroDeCusto }}</p>
+    </div>
+    <div class="modal-column">
+      <p>Município: {{ data.municipio }}</p>
+      <p>Nivel de Permissão: {{ data.nivelDePermissao }}</p>
+      <p>E-mail: {{ data.email }}</p>
+      <p>Telefone: {{ data.telefone }}</p>
+      <p>Ramal: {{ data.ramal }}</p>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions [align]="'end'">
+  <button class="fecharModal" style="width: 200px;" (click)="fecharDialogo()">Fechar</button>
+  <button class="solicitarAcesso" style="width: 200px;" (click)="solicitarAcesso()">Confirmar solicitação
+  </button>
+</mat-dialog-actions>

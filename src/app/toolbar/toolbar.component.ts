@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {MatIcon} from "@angular/material/icon";
 import {MatIconButton} from "@angular/material/button";
 import {MatToolbar} from "@angular/material/toolbar";
@@ -15,7 +16,8 @@ import {StorageService} from "../services/storage.service";
     MatIconButton,
     MatToolbar,
     NgOptimizedImage,
-    MatFooterRow
+    MatFooterRow,
+    CommonModule
   ],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.scss'
