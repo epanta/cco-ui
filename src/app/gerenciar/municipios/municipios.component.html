@@ -24,7 +24,7 @@
         <div class="col-md-4"></div>
         <div class="col-md-4">
         <div class="col btn-pesquisar">
-          <button type="button" class="btn primary" (click)="loadSearch(selectedValue, true)">Limpar</button>
+          <button type="button" class="btn clean" (click)="loadSearch(selectedValue, true)">Limpar</button>
           <button type="button" class="btn primary" (click)="loadSearch(selectedValue, true)">Pesquisar</button>
         </div>
       </div>
@@ -35,14 +35,14 @@
         <div class="col-auto">
           <h4>Municípios</h4>
         </div>
-        <div class="col-auto">
+        <div class="col btn-pesquisar">
           <button type="button" class="btn primary">Colunas</button>
           <button type="button" class="btn primary">Exportar</button>
-          <button type="button" mat-button (click)="openDialog()" class="btn "> + Adicionar</button>
+          <button type="button" (click)="openDialog()" class="btn green"> + Adicionar</button>
         </div>
 
       </div>
-
+      <br>
       <table class="usuarios-tabela">
         <thead>
           <tr>
